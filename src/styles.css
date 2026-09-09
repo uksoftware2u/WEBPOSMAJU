@@ -46,7 +46,7 @@ img { display: block; max-width: 100%; }
 .button--ghost { color: white; background: rgba(3,47,37,.35); border-color: rgba(255,255,255,.62); }
 .language { position: relative; }
 .language__trigger { min-width: 67px; height: 42px; display: flex; align-items: center; justify-content: center; gap: 6px; color: #23473b; background: #fff; border: 1px solid #d3e0d9; border-radius: 8px; }
-.language__menu { position: absolute; top: calc(100% + 10px); right: 0; width: 190px; padding: 7px; background: white; border: 1px solid #d9e5de; border-radius: 12px; box-shadow: 0 20px 48px rgba(3,47,37,.2); }
+.language__menu { position: absolute; z-index: 12; top: calc(100% + 10px); right: 0; width: 190px; padding: 7px; background: white; border: 1px solid #d9e5de; border-radius: 12px; box-shadow: 0 20px 48px rgba(3,47,37,.2); }
 .language__menu button { width: 100%; padding: 10px 11px; display: flex; justify-content: space-between; border: 0; border-radius: 7px; color: var(--ink); background: transparent; text-align: left; }
 .language__menu button:hover, .language__menu button.active { color: var(--green-700); background: #edf9f2; }
 .menu-toggle, .nav__mobile-actions { display: none; }
@@ -186,7 +186,10 @@ footer > .language { justify-self: end; }
   .nav--open { display: flex; flex-direction: column; }
   .nav > button { padding: 14px; text-align: left; }
   .nav > button::after { display: none; }
-  .nav__mobile-actions { display: flex; gap: 10px; padding-top: 10px; border-top: 1px solid #e1ebe5; }
+  .nav__mobile-actions { position: relative; display: flex; gap: 10px; padding-top: 10px; border-top: 1px solid #e1ebe5; }
+  .nav__mobile-actions > .language { position: static; flex: 0 0 108px; }
+  .nav__mobile-actions .language__trigger { width: 100%; min-width: 0; }
+  .nav__mobile-actions .language__menu { top: calc(100% + 8px); left: 0; right: 0; width: auto; max-height: min(310px, calc(100vh - 390px)); overflow-y: auto; overscroll-behavior: contain; }
   .nav__mobile-actions .button { flex: 1; }
   .hero { min-height: 980px; padding: 108px 24px 70px; }
   .hero h1 { font-size: clamp(2.8rem, 10vw, 4.6rem); }
