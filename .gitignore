@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.openai/
+POS-Maju-Website.html
+public/POS-Maju-Website.html
+public/qa-design-source.png
+design-source.png
+*.log
+.DS_Store
