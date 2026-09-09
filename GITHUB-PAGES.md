@@ -19,7 +19,7 @@ PowerShell:
 
 ```powershell
 $env:VITE_BASE_PATH='/WEBPOSMAJU/'
-npm run build
+npm run build:pages
 Remove-Item Env:VITE_BASE_PATH
 ```
 
