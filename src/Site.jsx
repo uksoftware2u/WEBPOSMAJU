@@ -5,6 +5,7 @@ import { copy, languages } from "./content.js";
 const featureIcons = [ShoppingCart, Package, Users, Percent, ChartLineUp, ForkKnife];
 const industryIcons = [Storefront, Storefront, Receipt, ForkKnife, Storefront];
 const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
+const whatsappNumber = "60127479966";
 
 function Reveal({ children, className = "" }) {
   const ref = useRef(null);
@@ -28,7 +29,7 @@ function LanguageMenu({ lang, onChange, invert = false }) {
 }
 
 function WhatsAppButton({ children, className = "" }) {
-  const href = "https://wa.me/?text=" + encodeURIComponent("Hello, I would like to know more about POS Maju.");
+  const href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to know more about POS Maju.")}`;
   return <a className={className} href={href} target="_blank" rel="noreferrer"><WhatsappLogo size={21} weight="fill" />{children}</a>;
 }
 
@@ -38,7 +39,7 @@ function InquiryForm({ t }) {
     event.preventDefault();
     const d = new FormData(event.currentTarget);
     const lines = ["POS Maju Inquiry", `Name: ${d.get("name")}`, `Company: ${d.get("company")}`, `Phone: ${d.get("phone")}`, `Email: ${d.get("email") || "-"}`, `Business: ${d.get("type")}`, `Devices: ${d.get("devices")}`, `Message: ${d.get("message") || "-"}`];
-    window.open("https://wa.me/?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer");
     setSent(true);
   };
   return <form className="inquiry-form" onSubmit={submit}>
