@@ -16,6 +16,7 @@ Verified in the Codex in-app browser on 10 September 2026.
 - Mobile: 390 × 844 — navigation collapses, CTAs stack, proof points remain readable and hero imagery scales cleanly.
 - Narrow mobile: approximately 305 px — removed root min-width overflow; no horizontal scrollbar remains.
 - Mobile language menu: anchored to the full navigation action row with left and right viewport-safe edges; all five language names remain visible without horizontal clipping.
+- Footer language menu: opens upward and stays centred within the mobile viewport, so it remains visible above the browser toolbar.
 
 ## Functional QA
 
