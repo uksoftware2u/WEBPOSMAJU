@@ -74,7 +74,12 @@ export function Site() {
     <div className="page-progress" aria-hidden="true" />
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <a href="#top" className="brand" aria-label="POS Maju home"><img src={asset("pos-maju-logo.png")} alt="POS Maju" /></a>
-      <nav className={`nav ${menuOpen ? "nav--open" : ""}`}>{links.map(([id, label]) => <button key={id} onClick={() => scrollTo(id)}>{label}</button>)}<div className="nav__mobile-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button></div></nav>
+      <nav className={`nav ${menuOpen ? "nav--open" : ""}`}>
+        {links.map(([id, label]) => <button key={id} onClick={() => scrollTo(id)}>{label}</button>)}
+        <a href={videoGuideUrl} target="_blank" rel="noreferrer"><PlayCircle size={17} weight="fill" />{t.resources[3]}</a>
+        <button onClick={() => scrollTo("resources")}><DownloadSimple size={17} weight="bold" />{t.resources[6]}</button>
+        <div className="nav__mobile-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button></div>
+      </nav>
       <div className="header-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button><WhatsAppButton className="button button--outline">{t.whatsapp}</WhatsAppButton></div>
       <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <List />}</button>
     </header>
