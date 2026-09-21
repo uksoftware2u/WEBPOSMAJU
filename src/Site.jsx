@@ -7,7 +7,7 @@ const industryIcons = [Storefront, Storefront, Receipt, ForkKnife, Storefront];
 const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
 const whatsappNumber = "60127479966";
 const videoGuideUrl = "https://youtube.com/playlist?list=PLAYF-rVdF9KA&si=b8z4V-sKIYavs8os";
-const downloadUrl = "https://drive.google.com/drive/folders/1PErwcTAtkttrApwmDcOeWVKxVS5fq1io?usp=sharing";
+const downloadUrl = "https://drive.google.com/drive/folders/1JW5aLt4Iq1qfzwRdwvMIW_R9QQnScZw2?usp=sharing";
 
 function Reveal({ children, className = "" }) {
   const ref = useRef(null);
