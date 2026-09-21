@@ -7,6 +7,7 @@ const industryIcons = [Storefront, Storefront, Receipt, ForkKnife, Storefront];
 const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
 const whatsappNumber = "60127479966";
 const videoGuideUrl = "https://youtube.com/playlist?list=PLAYF-rVdF9KA&si=b8z4V-sKIYavs8os";
+const downloadUrl = "https://drive.google.com/drive/folders/1PErwcTAtkttrApwmDcOeWVKxVS5fq1io?usp=sharing";
 
 function Reveal({ children, className = "" }) {
   const ref = useRef(null);
@@ -77,7 +78,7 @@ export function Site() {
       <nav className={`nav ${menuOpen ? "nav--open" : ""}`}>
         {links.map(([id, label]) => <button key={id} onClick={() => scrollTo(id)}>{label}</button>)}
         <a href={videoGuideUrl} target="_blank" rel="noreferrer"><PlayCircle size={17} weight="fill" />{t.resources[3]}</a>
-        <button onClick={() => scrollTo("resources")}><DownloadSimple size={17} weight="bold" />{t.resources[6]}</button>
+        <a href={downloadUrl} target="_blank" rel="noreferrer"><DownloadSimple size={17} weight="bold" />{t.resources[6]}</a>
         <div className="nav__mobile-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button></div>
       </nav>
       <div className="header-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button><WhatsAppButton className="button button--outline">{t.whatsapp}</WhatsAppButton></div>
@@ -109,7 +110,7 @@ export function Site() {
         <Reveal className="section-heading"><p className="eyebrow eyebrow--green">{t.resources[0]}</p><h2>{t.resources[1]}</h2><p>{t.resources[2]}</p></Reveal>
         <div className="resource-grid">
           <Reveal className="resource-card resource-card--video"><div className="resource-card__icon"><PlayCircle size={34} weight="fill" /></div><div><h3>{t.resources[3]}</h3><p>{t.resources[4]}</p></div><a className="button button--lime" href={videoGuideUrl} target="_blank" rel="noreferrer">{t.resources[5]}<ArrowRight size={18} /></a></Reveal>
-          <Reveal className="resource-card"><div className="resource-card__icon"><DownloadSimple size={34} weight="bold" /></div><div><h3>{t.resources[6]}</h3><p>{t.resources[7]}</p></div><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.resources[8]}<ArrowRight size={18} /></button></Reveal>
+          <Reveal className="resource-card"><div className="resource-card__icon"><DownloadSimple size={34} weight="bold" /></div><div><h3>{t.resources[6]}</h3><p>{t.resources[7]}</p></div><a className="button button--primary" href={downloadUrl} target="_blank" rel="noreferrer">{t.resources[8]}<ArrowRight size={18} /></a></Reveal>
         </div>
       </section>
       <section className="stats section">{t.stats.map(([number, label]) => <Reveal key={label} className="stat"><strong>{number}</strong><span>{label}</span></Reveal>)}</section>
