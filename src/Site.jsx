@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AndroidLogo, ArrowRight, ChartLineUp, Check, Database, ForkKnife, Globe, List, Package, Percent, Receipt, ShoppingCart, Storefront, Users, WhatsappLogo, X } from "@phosphor-icons/react";
+import { AndroidLogo, ArrowRight, ChartLineUp, Check, Database, DownloadSimple, ForkKnife, Globe, List, Package, Percent, PlayCircle, Receipt, ShoppingCart, Storefront, Users, WhatsappLogo, X } from "@phosphor-icons/react";
 import { copy, languages } from "./content.js";
 
 const featureIcons = [ShoppingCart, Package, Users, Percent, ChartLineUp, ForkKnife];
 const industryIcons = [Storefront, Storefront, Receipt, ForkKnife, Storefront];
 const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
 const whatsappNumber = "60127479966";
+const videoGuideUrl = "https://youtube.com/playlist?list=PLAYF-rVdF9KA&si=b8z4V-sKIYavs8os";
 
 function Reveal({ children, className = "" }) {
   const ref = useRef(null);
@@ -99,6 +100,13 @@ export function Site() {
       <section className="story story--easy"><Reveal className="story__copy"><p className="eyebrow eyebrow--green">{t.easy[0]}</p><h2>{t.easy[1]}</h2><p>{t.easy[2]}</p><CheckList items={t.easyPoints} /></Reveal><Reveal className="story__visual product-story"><img className="story__photo" src={asset("retail-owner.png")} alt="Retail owner using POS Maju" /><img className="story__screen" src={asset("pos-sales-tablet.png")} alt="POS Maju sales interface" /></Reveal></section>
       <section className="story story--table"><Reveal className="story__visual"><img className="story__photo" src={asset("cafe-table-mode.png")} alt="Cafe operator using tablet" /></Reveal><Reveal className="story__copy"><p className="eyebrow eyebrow--green">{t.table[0]}</p><h2>{t.table[1]}</h2><p>{t.table[2]}</p><CheckList items={t.tablePoints} /></Reveal></section>
       <section className="value-section" id="value"><div className="value-section__copy"><Reveal><p className="eyebrow">{t.value[0]}</p><h2>{t.value[1]}</h2><p>{t.value[2]}</p><CheckList items={t.valuePoints} /><button className="button button--lime" onClick={() => scrollTo("inquiry")}>{t.demo}<ArrowRight /></button></Reveal></div><img src={asset("retail-owner.png")} alt="Malaysian business owner" /></section>
+      <section className="resources-section section" id="resources">
+        <Reveal className="section-heading"><p className="eyebrow eyebrow--green">{t.resources[0]}</p><h2>{t.resources[1]}</h2><p>{t.resources[2]}</p></Reveal>
+        <div className="resource-grid">
+          <Reveal className="resource-card resource-card--video"><div className="resource-card__icon"><PlayCircle size={34} weight="fill" /></div><div><h3>{t.resources[3]}</h3><p>{t.resources[4]}</p></div><a className="button button--lime" href={videoGuideUrl} target="_blank" rel="noreferrer">{t.resources[5]}<ArrowRight size={18} /></a></Reveal>
+          <Reveal className="resource-card"><div className="resource-card__icon"><DownloadSimple size={34} weight="bold" /></div><div><h3>{t.resources[6]}</h3><p>{t.resources[7]}</p></div><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.resources[8]}<ArrowRight size={18} /></button></Reveal>
+        </div>
+      </section>
       <section className="stats section">{t.stats.map(([number, label]) => <Reveal key={label} className="stat"><strong>{number}</strong><span>{label}</span></Reveal>)}</section>
       <section className="faq-section section" id="support"><Reveal className="section-heading section-heading--left"><p className="eyebrow eyebrow--green">FAQ</p><h2>{t.faqTitle}</h2></Reveal><div className="faq-list">{t.faqs.map(([q, a], i) => <div className={`faq ${faq === i ? "faq--open" : ""}`} key={q}><button onClick={() => setFaq(faq === i ? -1 : i)} aria-expanded={faq === i}><span>{q}</span><strong>{faq === i ? "−" : "+"}</strong></button><div><p>{a}</p></div></div>)}</div></section>
       <section className="inquiry" id="inquiry"><img className="inquiry__background" src={asset("hero-background.png")} alt="" /><div className="inquiry__intro"><p className="eyebrow">{t.inquiry[0]}</p><h2>{t.inquiry[1]}</h2><p>{t.inquiry[2]}</p><WhatsAppButton className="button button--ghost">{t.whatsapp}</WhatsAppButton></div><InquiryForm t={t} /></section>
