@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+Maju Connect website structure: keep a short introduction on the home page and a dedicated /maju-connect/ detail page linked from primary navigation. Internal navigation stays in the same browser tab; external video, download and contact links may open a new tab. Support all five site languages and direct GitHub Pages entry to the detail page.
+
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
 
 Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable prototype-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.
@@ -10,5 +12,7 @@ Durable POS Maju website direction: use the selected Emerald Product Theatre vis
 
 Durable resources direction: expose the POS Maju YouTube video-guide playlist at `https://youtube.com/playlist?list=PLAYF-rVdF9KA&si=b8z4V-sKIYavs8os`. Every Download action must open the shared Google Drive folder at `https://drive.google.com/drive/folders/1JW5aLt4Iq1qfzwRdwvMIW_R9QQnScZw2?usp=sharing` in a new tab.
 The `Video Guide` and `Download` fields must also remain immediately visible in the primary navigation; do not rely only on the lower-page resources section for discovery.
+
+Durable Maju Connect direction: present it as the PC companion and accounting bridge for POS Maju. Explain how office users can review detailed POS data on a computer, handle accounting work more efficiently, and connect or export data to supported accounting software such as AutoCount and SQL Accounting. Do not claim real-time, automatic, API, or two-way synchronization unless the implemented integration method has been confirmed.
 
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.

@@ -5,6 +5,7 @@ export default defineConfig({
   base: process.env.VITE_BASE_PATH || "/",
   build: {
     outDir: "dist/client",
+    rollupOptions: { input: { home: "index.html", connect: "maju-connect/index.html" } },
   },
   optimizeDeps: {
     include: ["react", "react-dom/client"],

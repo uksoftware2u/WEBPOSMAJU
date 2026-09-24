@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AndroidLogo, ArrowRight, ChartLineUp, Check, Database, DownloadSimple, ForkKnife, Globe, List, Package, Percent, PlayCircle, Receipt, ShoppingCart, Storefront, Users, WhatsappLogo, X } from "@phosphor-icons/react";
 import { copy, languages } from "./content.js";
+import { connectCopy } from "./connect-content.js";
+import { ConnectIntro, ConnectPage } from "./Connect.jsx";
 
 const featureIcons = [ShoppingCart, Package, Users, Percent, ChartLineUp, ForkKnife];
 const industryIcons = [Storefront, Storefront, Receipt, ForkKnife, Storefront];
@@ -60,23 +62,28 @@ function InquiryForm({ t }) {
 }
 
 export function Site() {
+  const home = import.meta.env.BASE_URL;
+  const connectHref = `${home}maju-connect/`;
+  const isConnect = /\/maju-connect\/?(?:index\.html)?$/.test(window.location.pathname);
   const [lang, setLang] = useState(() => localStorage.getItem("pos-maju-site-language") || "en");
   const [menuOpen, setMenuOpen] = useState(false);
   const [feature, setFeature] = useState(0);
   const [faq, setFaq] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const t = copy[lang] || copy.en;
+  const ct = connectCopy[lang] || connectCopy.en;
   useEffect(() => { localStorage.setItem("pos-maju-site-language", lang); document.documentElement.lang = lang; }, [lang]);
   useEffect(() => { const handler = () => setScrolled(window.scrollY > 12); window.addEventListener("scroll", handler, { passive: true }); return () => window.removeEventListener("scroll", handler); }, []);
   const links = useMemo(() => [["features", t.nav[0]], ["business", t.nav[1]], ["value", t.nav[2]], ["support", t.nav[3]]], [t]);
-  const scrollTo = (id) => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setMenuOpen(false); };
+  const scrollTo = (id) => { if (isConnect) { window.location.assign(`${home}#${id}`); return; } document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setMenuOpen(false); };
 
   return <div className="site-shell">
     <div className="page-progress" aria-hidden="true" />
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
-      <a href="#top" className="brand" aria-label="POS Maju home"><img src={asset("pos-maju-logo.png")} alt="POS Maju" /></a>
+      <a href={isConnect ? home : "#top"} className="brand" aria-label="POS Maju home"><img src={asset("pos-maju-logo.png")} alt="POS Maju" /></a>
       <nav className={`nav ${menuOpen ? "nav--open" : ""}`}>
         {links.map(([id, label]) => <button key={id} onClick={() => scrollTo(id)}>{label}</button>)}
+        <a href={connectHref} aria-current={isConnect ? "page" : undefined}>Maju Connect</a>
         <a href={videoGuideUrl} target="_blank" rel="noreferrer"><PlayCircle size={17} weight="fill" />{t.resources[3]}</a>
         <a href={downloadUrl} target="_blank" rel="noreferrer"><DownloadSimple size={17} weight="bold" />{t.resources[6]}</a>
         <div className="nav__mobile-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button></div>
@@ -85,7 +92,7 @@ export function Site() {
       <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <List />}</button>
     </header>
 
-    <main id="top">
+    {isConnect ? <ConnectPage t={ct} home={home} /> : <main id="top">
       <section className="hero">
         <img className="hero__background" src={asset("hero-background.png")} alt="" /><div className="hero__veil" />
         <div className="hero__content"><p className="eyebrow">{t.eyebrow}</p><h1><span>{t.hero[0]}</span><strong>{t.hero[1]}</strong><span>{t.hero[2]}</span></h1><p className="hero__body">{t.heroBody}</p>
@@ -106,6 +113,7 @@ export function Site() {
       <section className="story story--easy"><Reveal className="story__copy"><p className="eyebrow eyebrow--green">{t.easy[0]}</p><h2>{t.easy[1]}</h2><p>{t.easy[2]}</p><CheckList items={t.easyPoints} /></Reveal><Reveal className="story__visual product-story"><img className="story__photo" src={asset("retail-owner.png")} alt="Retail owner using POS Maju" /><img className="story__screen" src={asset("pos-sales-tablet.png")} alt="POS Maju sales interface" /></Reveal></section>
       <section className="story story--table"><Reveal className="story__visual"><img className="story__photo" src={asset("cafe-table-mode.png")} alt="Cafe operator using tablet" /></Reveal><Reveal className="story__copy"><p className="eyebrow eyebrow--green">{t.table[0]}</p><h2>{t.table[1]}</h2><p>{t.table[2]}</p><CheckList items={t.tablePoints} /></Reveal></section>
       <section className="value-section" id="value"><div className="value-section__copy"><Reveal><p className="eyebrow">{t.value[0]}</p><h2>{t.value[1]}</h2><p>{t.value[2]}</p><CheckList items={t.valuePoints} /><button className="button button--lime" onClick={() => scrollTo("inquiry")}>{t.demo}<ArrowRight /></button></Reveal></div><img src={asset("retail-owner.png")} alt="Malaysian business owner" /></section>
+      <ConnectIntro t={ct} href={connectHref} />
       <section className="resources-section section" id="resources">
         <Reveal className="section-heading"><p className="eyebrow eyebrow--green">{t.resources[0]}</p><h2>{t.resources[1]}</h2><p>{t.resources[2]}</p></Reveal>
         <div className="resource-grid">
@@ -116,7 +124,7 @@ export function Site() {
       <section className="stats section">{t.stats.map(([number, label]) => <Reveal key={label} className="stat"><strong>{number}</strong><span>{label}</span></Reveal>)}</section>
       <section className="faq-section section" id="support"><Reveal className="section-heading section-heading--left"><p className="eyebrow eyebrow--green">FAQ</p><h2>{t.faqTitle}</h2></Reveal><div className="faq-list">{t.faqs.map(([q, a], i) => <div className={`faq ${faq === i ? "faq--open" : ""}`} key={q}><button onClick={() => setFaq(faq === i ? -1 : i)} aria-expanded={faq === i}><span>{q}</span><strong>{faq === i ? "−" : "+"}</strong></button><div><p>{a}</p></div></div>)}</div></section>
       <section className="inquiry" id="inquiry"><img className="inquiry__background" src={asset("hero-background.png")} alt="" /><div className="inquiry__intro"><p className="eyebrow">{t.inquiry[0]}</p><h2>{t.inquiry[1]}</h2><p>{t.inquiry[2]}</p><WhatsAppButton className="button button--ghost">{t.whatsapp}</WhatsAppButton></div><InquiryForm t={t} /></section>
-    </main>
+    </main>}
     <footer><img src={asset("pos-maju-logo.png")} alt="POS Maju" /><div><strong>{t.footer}</strong><span>© {new Date().getFullYear()} UK Soft & Solution PLT. {t.rights}</span></div><LanguageMenu lang={lang} onChange={setLang} invert /></footer>
   </div>;
 }

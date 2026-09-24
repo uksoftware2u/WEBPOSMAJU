@@ -1,0 +1,42 @@
+.connect-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding-block: 100px; }
+.connect-intro h2, .connect-page h2 { margin: 0 0 24px; font-size: clamp(1.9rem, 3.3vw, 3.3rem); line-height: 1.12; letter-spacing: -.04em; }
+.connect-intro p, .connect-page p { line-height: 1.75; }
+.connect-intro > div > p:not(.eyebrow) { color: var(--muted); margin-bottom: 28px; }
+.connect-intro-list { display: grid; gap: 24px; }
+.connect-intro-list article { display: flex; gap: 20px; border-bottom: 1px solid #dbe8e0; padding-bottom: 20px; }
+.connect-intro-list svg { flex-shrink: 0; color: var(--green-700); }
+.connect-intro-list h3 { margin: 0 0 8px; }
+.connect-intro-list p { margin: 0; color: var(--muted); }
+.connect-hero { padding: 118px 0 55px; color: white; background: var(--green-950); }
+.connect-back { display: inline-block; margin-bottom: 44px; color: #c3e8d3; text-decoration: none; }
+.connect-hero h1 { max-width: 980px; margin: 0; font-size: clamp(2.7rem, 5.6vw, 5.6rem); line-height: 1.06; letter-spacing: -.055em; }
+.connect-lead { max-width: 780px; font-size: 1.08rem; margin-block: 25px 32px; }
+.connect-hero .connect-lead { color: #c5dcd3; }
+.connect-path { margin-top: 58px; padding-top: 28px; border-top: 1px solid #45695b; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; color: #a0f5c6; font-weight: 650; }
+.connect-path span { display: flex; align-items: center; gap: 10px; }
+.connect-block { padding-block: 84px; }
+.connect-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
+.connect-card { padding: 30px; background: white; border: 1px solid #dbe8e0; border-radius: 16px; }
+.connect-card > svg { color: var(--green-700); }
+.connect-page h3 { font-size: 1.3rem; line-height: 1.35; }
+.connect-card p, .connect-split p, .connect-steps p, .connect-trust p { color: var(--muted); margin-bottom: 0; }
+.connect-card strong { color: var(--green-700); font-size: .9rem; }
+.connect-details, .connect-integrations { background: var(--fog); }
+.connect-split { padding-block: 75px; display: grid; grid-template-columns: 1fr 1fr; gap: 75px; align-items: center; }
+.connect-split ul { list-style: none; padding: 0; display: grid; gap: 18px; }
+.connect-split li { display: flex; gap: 12px; align-items: center; font-weight: 600; }
+.connect-split svg { color: var(--green-700); flex-shrink: 0; }
+.connect-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
+.connect-steps li { border-top: 2px solid var(--green-700); padding-top: 22px; }
+.connect-steps span { color: var(--green-700); font-size: 2rem; font-weight: 800; }
+.connect-note { color: var(--muted); font-size: .87rem; max-width: 960px; margin: 28px 0 0; }
+.connect-trust { display: flex; gap: 24px; padding: 30px; margin-top: 30px; background: var(--fog); border-radius: 16px; }
+.connect-trust > svg { flex-shrink: 0; color: var(--green-700); }
+.connect-trust h3 { margin: 0; }
+.connect-cta { padding: 55px; margin-bottom: 75px; color: white; background: var(--green-950); border-radius: 20px; }
+.connect-cta p { max-width: 800px; color: #c5dcd3; margin-bottom: 28px; }
+.nav a[aria-current="page"] { color: var(--green-700); }
+@media (min-width: 1081px) { .site-header { gap: 18px; } .nav { gap: 14px; font-size: .88rem; } .header-actions .button--outline { display: none; } }
+@media (max-width: 1080px) { .nav { max-height: calc(100dvh - 86px); overflow-y: auto; } .nav__mobile-actions .language__menu { top: auto; bottom: calc(100% + 8px); max-height: 270px; } }
+@media (max-width: 820px) { .connect-intro, .connect-split { grid-template-columns: 1fr; gap: 30px; } .connect-grid { grid-template-columns: 1fr; } .connect-steps { grid-template-columns: 1fr 1fr; } .connect-block, .connect-intro { padding-block: 58px; } .connect-hero { padding-top: 100px; } .connect-path { gap: 16px; font-size: .87rem; } }
+@media (max-width: 560px) { .connect-steps { grid-template-columns: 1fr; } .connect-cta { padding: 30px 22px; } .connect-card { padding: 24px; } .connect-path { flex-direction: column; align-items: flex-start; } .connect-path > svg { transform: rotate(90deg); } .connect-trust { padding: 24px; gap: 15px; } .connect-back { margin-bottom: 32px; } }
