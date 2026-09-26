@@ -92,7 +92,7 @@ export function Site() {
       <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <List />}</button>
     </header>
 
-    {isConnect ? <ConnectPage t={ct} home={home} /> : <main id="top">
+    {isConnect ? <ConnectPage t={ct} home={home} lang={lang} /> : <main id="top">
       <section className="hero">
         <img className="hero__background" src={asset("hero-background.png")} alt="" /><div className="hero__veil" />
         <div className="hero__content"><p className="eyebrow">{t.eyebrow}</p><h1><span>{t.hero[0]}</span><strong>{t.hero[1]}</strong><span>{t.hero[2]}</span></h1><p className="hero__body">{t.heroBody}</p>

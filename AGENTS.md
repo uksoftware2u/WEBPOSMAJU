@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+Maju Connect screenshot source: use real application captures from C:\Maju Connect, with the latest teal interface where available. Public screenshots must use verified demo data. Label simulation connection states accurately; never present the current simulated AutoCount bridge as a verified production integration. Keep update scope limited to Maju Connect.
+
 Maju Connect website structure: keep a short introduction on the home page and a dedicated /maju-connect/ detail page linked from primary navigation. Internal navigation stays in the same browser tab; external video, download and contact links may open a new tab. Support all five site languages and direct GitHub Pages entry to the detail page.
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
