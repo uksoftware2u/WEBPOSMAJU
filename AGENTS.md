@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+Maju Connect marketing: include detailed Dashboard and Consolidated Report screenshots with feature explanations, plus a clearly labelled AutoCount / SQL Accounting connection concept illustration. Let visitors enlarge detailed screenshots within the same page. Download click counter requirement: start from 1000 and increment once per Download click; persistence scope must be confirmed before implementation.
+
 Maju Connect screenshot source: use real application captures from C:\Maju Connect, with the latest teal interface where available. Public screenshots must use verified demo data. Label simulation connection states accurately; never present the current simulated AutoCount bridge as a verified production integration. Keep update scope limited to Maju Connect.
 
 Maju Connect website structure: keep a short introduction on the home page and a dedicated /maju-connect/ detail page linked from primary navigation. Internal navigation stays in the same browser tab; external video, download and contact links may open a new tab. Support all five site languages and direct GitHub Pages entry to the detail page.

@@ -1,4 +1,18 @@
 .connect-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding-block: 100px; }
+.connect-highlight-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+.connect-highlight-tags span { padding: 8px 14px; background: #e0f4eb; border-radius: 30px; color: var(--green-800); font-size: .85rem; font-weight: 650; }
+.connect-gallery-item { padding-top: 25px; border-top: 1px solid #dbe8e0; }
+.connect-gallery-item figcaption { margin-bottom: 22px; }
+.connect-gallery-item h3 { color: var(--ink); font-size: clamp(1.4rem, 2.7vw, 2.2rem); }
+.connect-image-button { padding: 0; border: 0; background: transparent; text-align: left; width: 100%; cursor: zoom-in; }
+.connect-image-button span { display: inline-block; padding: 12px 0; color: var(--green-800); font-weight: 650; }
+.connect-image-dialog { width: min(1500px, 96vw); max-width: 96vw; max-height: 92dvh; padding: 20px; border: 0; border-radius: 16px; }
+.connect-image-dialog::backdrop { background: #032f25d9; }
+.connect-image-dialog form { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+.connect-showcase .connect-image-dialog img { width: max(100%, 1000px); max-width: none; height: auto; }
+.connect-image-dialog form { position: sticky; left: 0; top: 0; }
+.connect-concept-image { display: block; width: 100%; height: auto; border-radius: 16px; margin-top: 30px; }
+.connect-concept { padding-top: 0; }
 .connect-showcase figure { margin: 36px 0 0; }
 .connect-showcase figure img { display: block; width: 100%; height: auto; border: 1px solid #cadfd6; border-radius: 14px; box-shadow: 0 18px 48px #032f2512; }
 .connect-showcase figcaption { margin-top: 16px; color: var(--muted); line-height: 1.6; }
