@@ -184,7 +184,6 @@ footer > .language { justify-self: end; }
 .download-nav-label { display: grid; gap: 2px; }
 .download-nav-label small { font-size: .65rem; font-weight: 500; color: var(--muted); }
 .download-counter strong { color: var(--green-700); font-variant-numeric: tabular-nums; }
-.resource-card .download-counter-note { font-size: .78rem; line-height: 1.6; }
 
 @media (max-width: 1100px) {
   .nav { gap: 16px; }

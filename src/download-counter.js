@@ -21,9 +21,9 @@ export function createDownloadCounter(getStorage) {
 }
 
 export const downloadCountCopy = {
-  en: ["This browser", "Download clicks in this browser. Starts at 1,000; not a global total or completed downloads. Clearing site data resets the count."],
-  zh: ["当前浏览器", "当前浏览器的下载点击次数，以 1,000 为初始值；不是全站总数或已完成下载数。清除网站数据后会重置。"],
-  ms: ["Pelayar ini", "Klik muat turun dalam pelayar ini, bermula pada 1,000. Bukan jumlah global atau muat turun selesai. Memadam data laman menetapkan semula kiraan."],
-  th: ["เบราว์เซอร์นี้", "จำนวนคลิกดาวน์โหลดในเบราว์เซอร์นี้ เริ่มที่ 1,000 ไม่ใช่ยอดรวมทุกคนหรือจำนวนดาวน์โหลดสำเร็จ ล้างข้อมูลเว็บไซต์จะรีเซ็ตจำนวน"],
-  vi: ["Trình duyệt này", "Số lượt nhấp tải xuống trong trình duyệt này, bắt đầu từ 1.000. Không phải tổng toàn trang hay lượt tải hoàn tất. Xóa dữ liệu trang sẽ đặt lại số đếm."],
+  en: "This browser",
+  zh: "当前浏览器",
+  ms: "Pelayar ini",
+  th: "เบราว์เซอร์นี้",
+  vi: "Trình duyệt này",
 };

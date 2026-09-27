@@ -90,7 +90,7 @@ export function Site() {
         {links.map(([id, label]) => <button key={id} onClick={() => scrollTo(id)}>{label}</button>)}
         <a href={connectHref} aria-current={isConnect ? "page" : undefined}>Maju Connect</a>
         <a href={videoGuideUrl} target="_blank" rel="noreferrer"><PlayCircle size={17} weight="fill" />{t.resources[3]}</a>
-        <a href={downloadUrl} target="_blank" rel="noreferrer" onClick={recordDownload} onAuxClick={event => { if (event.button === 1) recordDownload(); }} title={counterText[1]}><DownloadSimple size={17} weight="bold" /><span className="download-nav-label">{t.resources[6]}<small aria-live="polite">{counterText[0]} · {formattedCount}</small></span></a>
+        <a href={downloadUrl} target="_blank" rel="noreferrer" onClick={recordDownload} onAuxClick={event => { if (event.button === 1) recordDownload(); }}><DownloadSimple size={17} weight="bold" /><span className="download-nav-label">{t.resources[6]}<small aria-live="polite">{counterText} · {formattedCount}</small></span></a>
         <div className="nav__mobile-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button></div>
       </nav>
       <div className="header-actions"><LanguageMenu lang={lang} onChange={setLang} /><button className="button button--primary" onClick={() => scrollTo("inquiry")}>{t.demo}</button><WhatsAppButton className="button button--outline">{t.whatsapp}</WhatsAppButton></div>
@@ -123,7 +123,7 @@ export function Site() {
         <Reveal className="section-heading"><p className="eyebrow eyebrow--green">{t.resources[0]}</p><h2>{t.resources[1]}</h2><p>{t.resources[2]}</p></Reveal>
         <div className="resource-grid">
           <Reveal className="resource-card resource-card--video"><div className="resource-card__icon"><PlayCircle size={34} weight="fill" /></div><div><h3>{t.resources[3]}</h3><p>{t.resources[4]}</p></div><a className="button button--lime" href={videoGuideUrl} target="_blank" rel="noreferrer">{t.resources[5]}<ArrowRight size={18} /></a></Reveal>
-          <Reveal className="resource-card"><div className="resource-card__icon"><DownloadSimple size={34} weight="bold" /></div><div><h3>{t.resources[6]}</h3><p>{t.resources[7]}</p><p className="download-counter" aria-live="polite">{counterText[0]} · <strong>{formattedCount}</strong></p><p className="download-counter-note">{counterText[1]}</p></div><a className="button button--primary" href={downloadUrl} target="_blank" rel="noreferrer" onClick={recordDownload} onAuxClick={event => { if (event.button === 1) recordDownload(); }}>{t.resources[8]}<ArrowRight size={18} /></a></Reveal>
+          <Reveal className="resource-card"><div className="resource-card__icon"><DownloadSimple size={34} weight="bold" /></div><div><h3>{t.resources[6]}</h3><p>{t.resources[7]}</p><p className="download-counter" aria-live="polite">{counterText} · <strong>{formattedCount}</strong></p></div><a className="button button--primary" href={downloadUrl} target="_blank" rel="noreferrer" onClick={recordDownload} onAuxClick={event => { if (event.button === 1) recordDownload(); }}>{t.resources[8]}<ArrowRight size={18} /></a></Reveal>
         </div>
       </section>
       <section className="stats section">{t.stats.map(([number, label]) => <Reveal key={label} className="stat"><strong>{number}</strong><span>{label}</span></Reveal>)}</section>
