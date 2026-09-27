@@ -1,6 +1,6 @@
 # Prototype Instructions
 
-Maju Connect marketing: include detailed Dashboard and Consolidated Report screenshots with feature explanations, plus a clearly labelled AutoCount / SQL Accounting connection concept illustration. Let visitors enlarge detailed screenshots within the same page. Download click counter requirement: start from 1000 and increment once per Download click; persistence scope must be confirmed before implementation.
+Maju Connect marketing: include detailed Dashboard and Consolidated Report screenshots with feature explanations, plus a clearly labelled AutoCount / SQL Accounting connection concept illustration. Let visitors enlarge detailed screenshots within the same page. Download click counter: start from 1000 and increment once per Download activation. User confirmed browser-local persistence only, without a backend. Share the localStorage counter across home/detail navigation and label it as current-browser clicks, not a global total or completed downloads.
 
 Maju Connect screenshot source: use real application captures from C:\Maju Connect, with the latest teal interface where available. Public screenshots must use verified demo data. Label simulation connection states accurately; never present the current simulated AutoCount bridge as a verified production integration. Keep update scope limited to Maju Connect.
 
